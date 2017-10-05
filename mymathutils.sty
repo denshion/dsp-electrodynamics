@@ -1,0 +1,68 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mymathutils}[2015/01/09 Math utils package]
+
+
+\RequirePackage{amsmath, amsfonts, amssymb, mathrsfs, bbm, pifont, breqn}
+
+
+\newcommand{\TODO}[1]{\textcolor{red}{\framebox{#1}}}
+
+
+\newcommand{\norm}[1]{\left\lvert\left\lvert#1\right\rvert\right\rvert}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+
+
+\newcommand{\natnum}{\mathbbm{N}}
+\newcommand{\intnum}{\mathbbm{Z}}
+\newcommand{\ratnum}{\mathbbm{Q}}
+\newcommand{\realnum}{\mathbbm{R}}
+\newcommand{\complexnum}{\mathbbm{C}}
+\newcommand{\defset}{\mathcal{D}}
+
+
+% A long space used to separate a predicate from quantors.
+\def\pred{\hspace{3em}}
+
+
+\newcommand{\rightto}{\rightrightarrows}
+
+\makeatletter
+% A hack to bypass mathstyle package reassigning \mathchoice.
+% It saves the old \mathchoice to \@@mathchoice.
+% The new one won't do, as it messes up text-style math with display-style.
+\newcommand{\series}[1]{\@@mathchoice{\sum_{#1}^{\infty}}{\sum}{\sum}{\sum}}
+
+\makeatother
+
+
+\newcommand{\taylor}[3]{\mathrm{P}_#1(#2, #3)}
+\newcommand{\Darbu}[0]{S_{\mathcal{D}}}
+\newcommand{\darbu}[0]{s_{\mathcal{D}}}
+\newcommand{\measure}[1]{\mathrm{m}#1}
+\newcommand{\neigh}{\text{\textsl \Large U}}
+\newcommand{\rational}[1]{\mathcal{R}\left(#1\right)}
+\newcommand{\diff}[0]{\mathscr{D}}
+
+
+% Accepts an optional parameter 's' (stands for 'short')
+\newcommand{\assignto}[1][l]{\ensuremath{\ifthenelse{\equal{#1}{s}}{\text{обозн.}}{\text{ обозначим за }}}}
+
+
+\renewcommand{\binom}[2]{\text{\textsl{\Large C}}^{#1}_{#2}}
+\renewcommand{\dbinom}[2]{\text{\textsl{\Large C}}^{#1}_{#2}}
+\DeclareMathOperator*{\signum}{signum}
+\DeclareMathOperator*{\rank}{rk}
+\DeclareMathOperator*{\diam}{diam}
+\DeclareMathOperator*{\const}{const}
+\DeclareMathOperator*{\Id}{Id}
+
+
+\newcommand{\dotprod}[2]{#1\cdot #2}
+\newcommand{\crossprod}[2]{[#1 \times #2]}
+
+
+\DeclareMathOperator*{\divergence}{div}
+\renewcommand{\div}{\divergence}
+\DeclareMathOperator*{\rot}{rot}
+\DeclareMathOperator*{\grad}{grad}
+\newcommand{\conjug}[1]{#1^{*}}

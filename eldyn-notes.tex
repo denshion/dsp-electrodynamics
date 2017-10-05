@@ -1,0 +1,22 @@
+\documentclass[12pt]{article}
+
+\usepackage[russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fullpage}
+\usepackage{mathtext}
+\usepackage[intlimits]{amsmath}
+\usepackage{mymathutils}
+
+\newenvironment{remark}[1][]{\par\textbf{#1}\par}{\par}
+\newenvironment{problem}[1][]{\par\textbf{Задача: #1}\par}{\par}
+
+\newcommand{\pdiff}[3][]{\frac{\partial^{#1} #2}{\partial #3^{#1}}}
+\newcommand{\fdiff}[3][]{\frac{d^{#1} #2}{d #3^{#1}}}
+
+\begin{document}
+	\input{text/lec1-07092017.tex}
+	\input{text/lec2-14092017.tex}
+	\input{text/lec3-21092017.tex}
+	\input{text/lec4-28092017.tex}
+	\input{text/lec5-05102017.tex}
+\end{document}
