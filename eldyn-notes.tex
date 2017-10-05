@@ -7,7 +7,7 @@
 \usepackage[intlimits]{amsmath}
 \usepackage{mymathutils}
 
-\newenvironment{remark}[1][]{\par\textbf{#1}\par}{\par}
+\newenvironment{remark}[1][Ремарка]{\par\noindent\rule{\textwidth}{.1pt}\par\textbf{#1}\par}{\par\noindent\rule{\textwidth}{.1pt}\par}
 \newenvironment{problem}[1][]{\par\textbf{Задача: #1}\par}{\par}
 
 \newcommand{\pdiff}[3][]{\frac{\partial^{#1} #2}{\partial #3^{#1}}}
