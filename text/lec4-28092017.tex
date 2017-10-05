@@ -162,27 +162,29 @@
 При этом интенсивность, регистрируемая
 квадратичным детектором, будет выражаться следующим образом:
 \begin{align*}
-  \frac{1}{\tau}\int_{t_0}^{t_0 + \tau} \abs{E_1 + E_2}^2 
-  = \frac{1}{\tau}\int_{t_0}^{t_0 + \tau} \abs{E_1}^2 
-  + \frac{1}{\tau}\int_{t_0}^{t_0 + \tau} \abs{E_2}^2 
-  + 2\frac{1}{\tau}\int_{t_0}^{t_0 + \tau} \abs{E_1E_2}.
+  \frac{1}{\tau}\int_{t_0}^{t_0 + \tau} \abs{E_1 + E_2}^2 dt
+  = \frac{1}{\tau}\int_{t_0}^{t_0 + \tau} \abs{E_1}^2dt 
+  + \frac{1}{\tau}\int_{t_0}^{t_0 + \tau} \abs{E_2}^2dt 
+  + 2\frac{1}{\tau}\int_{t_0}^{t_0 + \tau} \abs{E_1E_2}dt.
 \end{align*}
 Введя измеряемые интенсивности
 \begin{align*}
-  I_i = \frac{1}{\tau}\int_{t_0}^{t_0 + \tau} \abs{E_i}^2,
+  I_i = \frac{1}{\tau}\int_{t_0}^{t_0 + \tau} \abs{E_i}^2 dt,
 \end{align*}
 можем переписать это в виде
 \begin{align*}
-  I_{1+2} = I_1 + I_2 + 2I_1I_2\abs{\gamma_{21}(\tau)},
+  I_{1+2} = I_1 + I_2 + 2\sqrt{I_1I_2}\abs{\gamma_{21}(\tau)},
 \end{align*}
 где \(\gamma_{21}(\tau)\) (далее --- просто \(\gamma(\tau)\)) --- степень
 когерентности, определённая, как
 \begin{align*}
   \gamma(\tau) = \cfrac{
-  \left[\frac{1}{\tau}\int_{t_0}^{t_0 + \tau} \abs{E_1E_2}\right]
+  \left[\frac{1}{\tau}\int_{t_0}^{t_0 + \tau} \abs{E_1E_2}dt \right]
   }{
-  \left[\frac{1}{\tau}\int_{t_0}^{t_0 + \tau} \abs{E_1}^2\right]
-  \left[\frac{1}{\tau}\int_{t_0}^{t_0 + \tau} \abs{E_2}^2\right] 
+  \sqrt{
+    \left[\frac{1}{\tau}\int_{t_0}^{t_0 + \tau} \abs{E_1}^2dt\right]
+    \left[\frac{1}{\tau}\int_{t_0}^{t_0 + \tau} \abs{E_2}^2dt\right] 
+  }
   }.
 \end{align*}
 Как нетрудно заметить, \(0 \le \abs{\gamma(\tau)} \le 1\), причём
