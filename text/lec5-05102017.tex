@@ -140,4 +140,103 @@
   t = \frac{E_0^2}{2Z}.
 \end{align*}
 Именно этой формулой обычно и пользуются. В системе СГС импеданс вакуума равен~1.
-  
+
+
+\section{Распространение электромагнитных волн в различных средах}
+В данном параграфе будем рассматривать два вида сред:
+\begin{itemize}
+  \item проводящая среда с диэлектрической и магнитной проницаемостью;
+  \item идеальный металл (\(\sigma \to \infty\)).
+\end{itemize}
+
+Наша задача --- дать объяснение следующим экспериментальным фактам:
+\begin{enumerate}
+  \item закон Бугера: в среде волна затухает по закону
+  \begin{align*}
+    I(z) = I_0\exp(-2\alpha z);
+  \end{align*}
+  \item от идеального металла свет отражается практически полностью;
+  \item при отражении от металла свет меняет поляризацию.
+\end{enumerate}
+
+Для этого будем рассматривать модель комплексной диэлектрической проницаемости
+\begin{align*}
+  \epsilon = \epsilon' - i\epsilon'',
+\end{align*}
+где \(\epsilon''\) может быть связан как с поляризацией, так и с проводимостью:
+в этом случае \(\epsilon'' = \frac{\sigma}{\omega}\).
+
+\subsection{Закон Бугера}
+Получим для среды с комплексной диэлектрической проницаемостью коэффициент
+затухания \(\alpha\) и вещественную часть \(\beta\) волнового вектора.
+В этом месте в оптике и в радиофизике обозначения различаются (для сравнения,
+величины, помеченные <<крышкой>> --- комплексные, остальные --- вещественные):
+\begin{align*}
+  &\text{оптика}&
+  &\text{радиофизика}\\
+  \hat{\kappa} &= \frac{\omega}{\hat{v}_{\phi}}, &
+  \beta &= \frac{\omega}{v_{\phi}}, \\
+  \hat{\kappa} &= \beta - i\alpha, &
+  \hat{\gamma} &= \alpha + i\beta. \\
+\end{align*}
+В радиофизике \emph{постоянную распространения} \(\gamma\) вводят таким образом,
+чтобы выполнялось \(P_{\text{out}} = P_{\text{in}}\exp(\gamma l)\). По-видимому,
+такое отступление связано с тем, что в радиофизике не рассматривают комплексную
+диэлектрическую проницаемость, вводя вместо этого проводимость и поляризацию
+отдельно.
+
+Мы будем пользоваться оптической системой обозначений, так как в нашем
+рассмотрении <<фазовая скорость комплексная>>.
+
+Итак, нас интересует нахождение \(\alpha\) и \(\beta\) из
+\begin{align*}
+  \kappa = \frac{\omega}{c}\sqrt{\epsilon' - i\epsilon''}\sqrt{\mu} = \beta - i\alpha.
+\end{align*}
+Для этого воспользуемся выражением для квадратного корня комплексного числа:
+\begin{align*}
+  \sqrt{z} = \sqrt{\frac{\abs{z}}{2} + \frac{\Re{z}}{2}} \pm
+  i\sqrt{\frac{\abs{z}}{2} - \frac{\Re{z}}{2}}.
+\end{align*}
+Выразив таким образом \(\sqrt{\epsilon' - i\epsilon''}\), можем разбить
+уравнение на вещественную и мнимую части:
+\begin{align*}
+  \beta &= \frac{\omega}{c}\sqrt{\mu}\sqrt{\frac{\sqrt{(\epsilon')^2 + (\epsilon'')^2}}{2} + \frac{\epsilon'}{2}}, &
+  \alpha &= \frac{\omega}{c}\sqrt{\mu}\sqrt{\frac{\sqrt{(\epsilon')^2 + (\epsilon'')^2}}{2} - \frac{\epsilon'}{2}}. \\
+\end{align*}
+Вынося из-под корня \(\epsilon'/2\), получаем:
+\begin{align*}
+  \alpha &= \frac{\omega}{c}\sqrt{\frac{\epsilon'\mu}{2}\left[\sqrt{1
+  + \left(\frac{\epsilon''}{\epsilon'}\right)} - 1\right]}, &
+  \beta &= \frac{\omega}{c}\sqrt{\frac{\epsilon'\mu}{2}\left[\sqrt{1
+  + \left(\frac{\epsilon''}{\epsilon'}\right)} + 1\right]}.
+\end{align*}
+В случае металла можно перейти к проводимости: \(\epsilon''
+= \sigma/\omega\epsilon_0\).
+Тогда 
+\begin{align*}
+  \alpha &= \frac{\omega}{c}\sqrt{\frac{\epsilon'\mu}{2}\left[\sqrt{1
+  + \left(\frac{\sigma}{\omega\epsilon_0\epsilon'}\right)} - 1\right]}, &
+  \beta &= \frac{\omega}{c}\sqrt{\frac{\epsilon'\mu}{2}\left[\sqrt{1
+  + \left(\frac{\sigma}{\omega\epsilon_0\epsilon'}\right)} + 1\right]}.
+\end{align*}
+
+\subsection{Скин-эффект}
+В случае идеального металла --- когда \(\sigma \gg \omega\epsilon_0\epsilon'\), ---
+формулы упрощаются. Действительно, пользуясь соотношением
+\begin{align*}
+  \lim\limits_{x \to \infty} \frac{\sqrt{1 + x^2} \pm 1}{x} = 1,
+\end{align*}
+можем упростить формулы для \(\alpha\) и \(\beta\) до
+\begin{align*}
+  \alpha = \beta
+  = \frac{\omega}{c}\sqrt{\frac{\epsilon'\mu}{2}\frac{\sigma}{\omega\epsilon_0\epsilon'}}
+  = \frac{1}{c}\sqrt{\frac{\omega\sigma\mu}{2\epsilon_0}}.
+\end{align*}
+
+Отсюда можно получить глубину скин-слоя: это глубина, на которой, по закону
+Бугера, поле затухает в \(e\) раз --- другими словами, \(\alpha d_s = 1\).
+Тогда
+\begin{align*}
+  d_s = \alpha^{-1} = c\sqrt{\frac{2\epsilon_0}{\omega\sigma\mu}}.
+\end{align*}
+
