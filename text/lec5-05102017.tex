@@ -17,3 +17,127 @@
 \end{itemize}
 
 \section{Энергетические соотношения}
+Итак, допустим, мы получили решение уравнений Максвелла, например, в виде
+плоской волны:
+\begin{align*}
+  \vec{E} &= \vec{E_0} \exp\left[i(\omega t - \vec{\kappa}\vec{r}
+  + \phi(t))\right].
+\end{align*}
+Возникает вопрос: как получить его экспериментальное подтверждение? Для этого
+нужно измерить:
+\begin{itemize}
+  \item амплитуду \(\abs{\vec{E_0}}\);
+  \item поляризацию (направление \(\vec{E_0}\);
+  \item частоту \(\omega\);
+  \item длину волны \(\lambda = \frac{2\pi}{\kappa}\);
+  \item фазу \(\phi(t)\).
+\end{itemize}
+При этом наиболее точно мы можем измерить амплитуду; поляризацию --- примерно
+в \(10^4\) раз грубее (методы эллипсометрии); частоту и длину волны --- примерно
+с той же точностью, что и поляризацию (определяется имеющимися стандартами
+частоты и длины); фазу измерять мы вообще не можем --- только разность фаз.
+
+Так как амплитуда измеряется наиболее точно, для экспериментального
+подтверждения уравнений Максвелла важно получить энергетические соотношения.
+
+\begin{remark}[Об опыте Лебедева с пондеромоторной силой (передача импульса от
+света)]
+  Этот опыт был проделан более 100~лет назад, но при этом до сих пор ни
+  в школьные, ни в студенческие лабы его не включают. Это печально,
+  потому что опыт очень показательный и не требует сложного оборудования.
+\end{remark}
+
+\subsection{Теорема Умова --- Пойнтинга}
+Запишем два уравнения Максвелла, для простоты опустив токи:
+\begin{align*}
+  \left[\vec{\nabla} \times \vec{H}\right] &= \pdiff{\vec{D}}{t} \\
+  \left[\vec{\nabla} \times \vec{E}\right] &= -\pdiff{\vec{B}}{t}
+\end{align*}
+Домножив уравнения скалярно на \(\vec{E}\) и \(\vec{H}\) соответственно,
+вычтем их друг из друга:
+\begin{align*}
+  \vec{E}\cdot\left[\vec{\nabla} \times \vec{H}\right] -
+  \vec{H}\cdot\left[\vec{\nabla} \times \vec{E}\right] &= 
+  \vec{E}\pdiff{\vec{D}}{t} - \vec{H}\pdiff{\vec{B}}{t}.
+\end{align*}
+После этого воспользуемся векторным тождеством
+\begin{align*}
+  \vec{E}\cdot\left[\vec{\nabla} \times \vec{H}\right]
+  -
+  \vec{H}\cdot\left[\vec{\nabla} \times \vec{E}\right]
+  &= 
+  -\div\left[\vec{E}\times\vec{H}\right].
+\end{align*}
+С другой стороны, воспользуемся тем, что
+\begin{align*}
+  \epsilon \pdiff{}{t}\vec{E}^2 = \epsilon \pdiff{E^2}{E}\pdiff{E}{t}
+  = 2 E \pdiff{(\epsilon E)}{t},
+\end{align*}
+то есть,
+\begin{align*}
+  \vec{E}\pdiff{\vec{D}}{t} = \frac{1}{2}\epsilon\pdiff{E^2}{t}, 
+\end{align*}
+и, аналогично,
+\begin{align*}
+  \vec{H}\pdiff{\vec{B}}{t} = \frac{1}{2}\mu\pdiff{H^2}{t}.
+\end{align*}
+Пользуясь полученными равенствами, получаем
+\begin{align*}
+  \pdiff{}{t}\left[ \frac{\epsilon E^2 + \mu H^2}{2} \right]
+  +\div\left[\vec{E}\times\vec{H}\right] = 0.
+\end{align*}
+Это закон сохранения в дифференциальной форме. Речь идёт о сохранении энергии,
+отсюда плотность энергии
+\begin{align*}
+  w = 
+  \frac{\epsilon E^2 + \mu H^2}{2},
+\end{align*}
+а плотность потока энергии (вектор Умова --- Пойнтинга) ---
+\begin{align*}
+  \vec{S} = \left[\vec{E} \times \vec{H}\right].
+\end{align*}
+Закон сохранения легко перевести из дифференциальной формы в интегральную,
+проинтегрировав по некоторому замкнутому объёму, и, применив теорему Гаусса ---
+Остроградского, перейти от интеграла дивергенции по объёму к интегралу по
+поверхности:
+\begin{align*}
+  \pdiff{}{t}\iiint_{V} w dV = 
+  \iiint_{V} \div\vec{S} dV = 
+  \iint_{\partial V} \vec{S} \cdot d\vec{\sigma}.
+\end{align*}
+Поток энергии через единичную область представляет собой интенсивность:
+\begin{align*}
+  I = 
+  \iint_{1\times 1} \left[\vec{E} \times \vec{H}\right] d\vec{\sigma} = 
+  \iint_{1\times 1} \left[\vec{E} \times
+  \frac{\sqrt{\mu_0\mu}}{\sqrt{\epsilon_0\epsilon}}\vec{E}\right] d\vec{\sigma} = \frac{\abs{E}^2}{Z},
+\end{align*}
+где мы воспользовались соотношением для плоских волн
+\begin{align*}
+  \sqrt{\epsilon_0\epsilon}\vec{E} = \sqrt{\mu_0\mu}\vec{H}
+\end{align*}
+и ввели импеданс
+\begin{align*}
+  Z = \frac{\sqrt{\epsilon_0\epsilon}}{\sqrt{\mu_0\mu}}.
+\end{align*}
+Таким образом, для плоской волны \(\vec{E} = \vec{E_0}\cos{\omega t}\),
+\begin{align*}
+  I = \frac{E_0^2}{Z} \cos^2\omega t.
+\end{align*}
+Автор конспекта предлагает обратить внимание на сходство с законом Джоуля ---
+Ленца:
+\begin{align*}
+  P = \frac{U_0^2}{Z},
+\end{align*}
+причём электрическое поле измеряется в \(\text{В}/\text{м}\), а интенсивность ---
+в~\(\text{Вт}/\text{м}^2\).
+
+В реальном эксперименте в оптическом диапазоне детектор не может уследить за
+множителем \(\cos\omega t\), поэтому наблюдается усреднённое значение
+интенсивности:
+\begin{align*}
+  I = \frac{1}{\tau}\int_{t_0}^{t_0 + \tau}\frac{E_0^2}{Z} \cos^2\omega
+  t = \frac{E_0^2}{2Z}.
+\end{align*}
+Именно этой формулой обычно и пользуются. В системе СГС импеданс вакуума равен~1.
+  
