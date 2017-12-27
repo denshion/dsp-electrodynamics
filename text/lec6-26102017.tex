@@ -1,0 +1,114 @@
+\section{Модель Друде --- Лоренца --- Зоммерфельда}
+В металлах диэлектрическая проницаемость описывается формулой Дебая:
+\begin{equation}
+  \varepsilon^{*} = \varepsilon_{\infty} 
+-
+\underbrace{
+  \frac{\varepsilon_0 - \varepsilon_{\infty}}{1 + i\omega \tau}
+}_{\text{резонансное поглощение}}
+  -
+\underbrace{
+i\frac{\sigma}{\omega\varepsilon_0}
+}_{\text{экранировка}}
+\end{equation}
+
+Для примера рассмотрим параметры трёх лучших металлов: Ag, Au, Cu.
+В ИК-диапазоне у них наблюдается показатель преломления \(n < 1\).
+Как это объяснить?
+
+При построении теории оптики хороших металлов, следует иметь ввиду, что для
+них \(\sigma \to \infty\) и \(R \to 1\). Для сравнения:
+\(\sigma_{\text{бескислородн. Cu}} \sim 10^7\ldots10^8\).
+
+\subsection{Отклик идеального газа электронов}
+Будем рассматривать электронный газ в металле как идеальный.
+Для построения модели Лоренца --- Друде --- Зоммерфельда проделываются следующие
+шаги:
+\begin{enumerate}
+\item
+Записываются силы, действующие на электрон --- сила трения \(m\gamma\dot{r}\)
+и взаимодействие с электрическим полем волны \(eEe^{i\omega t}\).
+\item
+Из них получается уравнение 
+\begin{equation}
+  \ddot{r} + \gamma\dot{r} = E\frac{e}{m} e^{i\omega t}.
+\end{equation}
+Решение этого уравнения ---
+\begin{equation}
+  r(t) = -Ee^{i\omega t} \frac{e}{m} \frac{1}{\omega^2 - i\gamma\omega}.
+\end{equation}
+\item
+Одиночный электрон обладает дипольным моментом \(e r(t)\); все электроны
+в единице объёма вещества ---
+\begin{equation}
+  P = \frac{1}{V} \sum_i p_i = ner(t),
+\end{equation}
+где \(n\) --- концентрация электронов.
+\item
+Так как \(\vec{D} = \varepsilon_0 \vec{E} + \vec{P}\), 
+\begin{equation}
+  \varepsilon(\omega) = \frac{De^{i\omega t}}{Ee^{i\omega t}} = \varepsilon_0 + \frac{ner(t)}{Ee^{i\omega t}}
+  =
+  \varepsilon_0 - \frac{ne^2}{m}\frac{1}{\omega^2 - i\gamma\omega}.
+\end{equation}
+\end{enumerate}
+Таким образом, получаем отклик в виде 
+\begin{equation}
+  \varepsilon(\omega) = \varepsilon_0 \left[1 - \frac{\omega_p^2}{\omega^2
+  - i\gamma\omega}\right],
+\end{equation}
+где \(\omega^2_p = e^2n/m\varepsilon_0\) называется \emph{плазменной частотой}.
+
+Для хороших металлов \(\gamma \ll \omega\), поэтому диэлектрическая
+проницаемость для них имеет вид
+\begin{equation}
+  \varepsilon(\omega) = \varepsilon_0\left[1
+  - \frac{\omega_p^2}{\omega^2}\right].
+\end{equation}
+При этом, как легко видеть, в области \(\omega > \omega_p\) наблюдается \(n
+< 1\).
+
+// Может, в начале про \(n < 1\) речь шла про ультрафиолет, а не ИК?
+
+В качестве характеристики потерь можно ввести \emph{тангенс угла потерь}, равный
+\begin{align*}
+  \tg\varphi = \frac{\varepsilon''}{\varepsilon'}.
+\end{align*}
+
+Подробнее почитать можно в: Климове (наноплазмоника); Сарычев, Шалаев ---
+<<Электродинамика метаматериалов>>.
+
+\subsection{Смысл плазменной частоты}
+Уравнению Максвелла \(\div \vec{D} = \varepsilon(\omega)\div\vec{E} = 0\)
+можно удовлетворить двумя способами:
+\begin{itemize}
+  \item \(\div\vec{E} = 0\) --- поперечная волна;
+  \item \(\varepsilon(\omega) = 0\) --- продольная волна.
+\end{itemize}
+
+Разберём эти два случая по-отдельности.
+\paragraph{Поперечная волна}
+Для поперечной волны уравнение Гельмгольца имеет вид
+\begin{equation}
+  \underbrace{
+  -\vec{\kappa}
+  (\vec{\kappa}\cdot\vec{E})
+  }_{= 0}
+  + \kappa^2 \vec{E}(\vec{\kappa}, \omega) = \varepsilon(\vec{\kappa}, \omega)
+  \frac{\omega^2}{c^2} \vec{E}(\vec{\kappa}, \omega).
+\end{equation}
+
+Отсюда получаем дисперсионное соотношение:
+\begin{equation}
+  \omega \varepsilon(\vec{\kappa}, \omega) = c^2 \kappa^2.
+\end{equation}
+
+Если взять \(\varepsilon(\omega) = \varepsilon_0(1 - \omega_p^2 / \omega^2)\),
+то получается дисперсионное соотношение поперечного поляритона:
+\begin{equation}
+  \omega^2 = \omega_p^2 + c^2\kappa^2.
+\end{equation}
+
+\paragraph{Продольная волна}
+В случае продольной волны (\(\varepsilon(\omega, \vec{\kappa}) = 0\)),
+пространственную дисперсию исключать нельзя. 
